@@ -49,7 +49,8 @@
         <h3 class="text-center">En Instagram:</h3>
         <div class="instagram-photos text-center">
           <?php
-            $grams = getInstagramTaggedMedia('nopasanadamaestro');
+            //$grams = getInstagramTaggedMedia('nopasanadamaestro');
+            $grams = mockInstagram();
             //print count($grams['data']);
             foreach ($grams['data'] as $photo) {
               $url = $photo['images']['thumbnail']['url'];
