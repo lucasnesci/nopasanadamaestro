@@ -54,8 +54,9 @@
             //print count($grams['data']);
             foreach ($grams['data'] as $photo) {
               $url = $photo['images']['thumbnail']['url'];
-              print "<img src=$url>";
+              //print "<img src=$url>";
             }
+            echo '<pre>'; var_dump($grams['data']); echo '</pre>';
           ?>
         </div>
       </div>

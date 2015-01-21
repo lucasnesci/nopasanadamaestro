@@ -4,7 +4,7 @@
 // Connect to the database.
 function db_connect() {
   try {
-    $db = new PDO('mysql:host=localhost;dbname=alonsoadriana;charset=utf8', 'root', 'root');
+    $db = new PDO('mysql:host=localhost;dbname=nopasanadamaestro;charset=utf8', 'root', 'root');
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
     return $db;
@@ -14,10 +14,13 @@ function db_connect() {
 }
 
 // Get FLickr photoset (album) from a specific id.
-function getInstagramTaggedMedia($hashtag) {
+function getInstagramTaggedMedia($hashtag, $max_tag_id) {
   $client_id = 'a1832e16662b4e3eb4de131ac3884588';
   // Set POST variables.
   $url = 'https://api.instagram.com/v1/tags/'.$hashtag.'/media/recent?client_id='.$client_id;
+  if (!empty($max_tag_id)) {
+    $url .= '&max_tag_id='.$max_tag_id;
+  }
 
   // Open connection.
   $ch = curl_init();
@@ -2654,7 +2657,7 @@ function mockInstagram() {
         }
     ]
 }';
-  $data2 = '{
+  $data = '{
     "pagination": {
         "next_min_id": "1416617863992144",
         "deprecation_warning": "next_max_id and min_id are deprecated for this endpoint; use min_tag_id and max_tag_id instead",
