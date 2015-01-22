@@ -2657,7 +2657,7 @@ function mockInstagram() {
         }
     ]
 }';
-  $data = '{
+  $data2 = '{
     "pagination": {
         "next_min_id": "1416617863992144",
         "deprecation_warning": "next_max_id and min_id are deprecated for this endpoint; use min_tag_id and max_tag_id instead",

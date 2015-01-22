@@ -8,9 +8,15 @@ $db = db_connect();
 
 $grams = getInstagramTaggedMedia('nopasanadamaestro');
 foreach ($grams['data'] as $photo) {
-  $user = $photo ;
+  $time = $photo['created_time'];
+  $link = $photo['link'];
+  $type = $photo['type'];
+  $id = $photo['id'];
+  $user_username = $photo['user']['username'];
+  $user_fullname = $photo['user']['full_name'];
   $url = $photo['images']['thumbnail']['url'];
-  print "<img src=$url>";
+  //print "<img src=$url>";
+  print "time: $time </br> link $link  </br> type: $type  </br> id: $id  </br> username: $user_username  </br> userfull: $user_username  </br> url: $url  </br> </br>";
 }
 
 foreach ($categories as $cname => $photoset_id) {
