@@ -7,17 +7,58 @@ $db = db_connect();
 //echo "----".file_put_contents("../images/categories/abstracto/14221156809-copy.jpg", file_get_contents("../images/categories/abstracto/14221156809.jpg"))."----";
 
 $grams = getInstagramTaggedMedia('nopasanadamaestro');
-foreach ($grams['data'] as $photo) {
-  $time = $photo['created_time'];
-  $link = $photo['link'];
-  $type = $photo['type'];
-  $id = $photo['id'];
-  $user_username = $photo['user']['username'];
-  $user_fullname = $photo['user']['full_name'];
-  $url = $photo['images']['thumbnail']['url'];
+foreach ($grams['data'] as $key => $value) {
+  $id = $value['id'];
+  $service_media_ids[] = $id;
+  
+  $service_media[$id] = array(
+      'id' => $id,
+      'time' => $value['created_time'],
+      'link' => $value['link'],
+      'type' => $value['type'],
+      'user_username' => $value['user']['username'],
+      'user_fullname' => $value['user']['full_name'],
+      'thumbnail_url' => $value['images']['thumbnail']['url'],
+  );
+  
   //print "<img src=$url>";
-  print "time: $time </br> link $link  </br> type: $type  </br> id: $id  </br> username: $user_username  </br> userfull: $user_username  </br> url: $url  </br> </br>";
+  //print "time: $time </br> link $link  </br> type: $type  </br> id: $id  </br> username: $user_username  </br> userfull: $user_username  </br> url: $thumbnail_url  </br> </br>";
 }
+
+?><pre><?php
+//var_dump($value);
+?></pre><?php
+
+$stmt = $db->query('SELECT * FROM instagram');
+
+while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+  $database_media_ids[] = $row['media_id'];  
+}
+
+$diff_media_ids = array_diff($service_media_ids, $database_media_ids);
+//$diff_media_ids = array_diff($database_media_ids, $service_media_ids);
+
+$count = 0;
+// Begin databse transaction.
+$db->beginTransaction();
+
+foreach ($diff_media_ids as $value) {
+  $stmt = $db->prepare("INSERT INTO instagram(media_id, media_timestamp, media_type, media_url, media_thumbnail, user_username, user_fullname) VALUES (?, ?, ?, ?, ?, ? ,?)");
+  $stmt->execute(array(
+    $service_media[$value]['id'],
+    $service_media[$value]['time'],
+    $service_media[$value]['link'],
+    $service_media[$value]['type'],
+    $service_media[$value]['user_username'],
+    $service_media[$value]['user_fullname'],
+    $service_media[$value]['thumbnail_url'],
+  ));
+  $count++;
+}
+
+// Execute all the queries.
+$db->commit();
+echo "Total photos added: ".$count."<br/>";
 
 foreach ($categories as $cname => $photoset_id) {
   echo "Category: ".$cname."<br/>";
