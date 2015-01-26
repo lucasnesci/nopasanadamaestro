@@ -1,31 +1,17 @@
-<?php include_once 'assets/helpers/func.php'; ?>
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
-
-    <title>#NoPasaNadaMaestro</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="contrib/css/jumbotron-narrow.css" rel="stylesheet">
-    
-    <!-- Custom styles for this template -->
-    <link href="assets/css/custom.css" rel="stylesheet">
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
+<!doctype html>
+<html lang="es" ng-app="npnm">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>#NoPasaNadaMaestro</title>
+	<link rel="icon" type="image/png" href="assets/img/favicon.png"/>
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.css">
+	<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,300'>
+	<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css">
+	<link rel="stylesheet" href="assets/css/npnm.css">
+        <link rel="stylesheet" href="assets/css/jumbotron-narrow.css">
+</head>
   <body>
     <div class="container">
       <div class="header">
@@ -66,10 +52,10 @@
       </footer>
     </div>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script type="text/javascript" src="assets/js/npnm-data.js"></script>
+    <script type="text/javascript" src="assets/js/app.js"></script>
   </body>
 </html>
