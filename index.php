@@ -24,27 +24,9 @@
         </nav>
         <h3 class="text-muted">#NoPasaNadaMaestro</h3>
       </div>
-
-      <div class="content">
-        <h3 class="text-center">En Twitter:</h3>
-        <div class="twitter-feeds text-center">
-          <a class="twitter-timeline" data-dnt="true" href="https://twitter.com/hashtag/nopasanadamaestro" data-widget-id="556862951639240704">Tweets sobre #nopasanadamaestro</a>
-            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-        </div>
-
-        <h3 class="text-center">En Instagram:</h3>
-        <div class="instagram-photos text-center">
-          <?php
-            //$grams = getInstagramTaggedMedia('nopasanadamaestro');
-            $grams = mockInstagram();
-            //print count($grams['data']);
-            foreach ($grams['data'] as $value) {
-              $url = $value['images']['thumbnail']['url'];
-              //print "<img src=$url>";
-            }
-            echo '<pre>'; var_dump($grams['data']); echo '</pre>';
-          ?>
-        </div>
+      
+      <div id="main">
+        <div ng-view></div>
       </div>
 
       <footer class="footer">
@@ -52,10 +34,28 @@
       </footer>
     </div>
 
-    <script type="text/javascript" src="bower_components/angular/angular.js"></script>
-    <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
-    <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-route/angular-route.min.js"></script>
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="assets/js/npnm-data.js"></script>
     <script type="text/javascript" src="assets/js/app.js"></script>
+    <script>window.twttr = (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0],
+        t = window.twttr || {};
+      if (d.getElementById(id)) return;
+      js = d.createElement(s);
+      js.id = id;
+//      js.src = "https://platform.twitter.com/widgets.js";
+      js.src = "assets/js/twitter-widget.js";
+      fjs.parentNode.insertBefore(js, fjs);
+
+      t._e = [];
+      t.ready = function(f) {
+        t._e.push(f);
+      };
+
+      return t;
+    }(document, "script", "twitter-wjs"));</script>
   </body>
 </html>
