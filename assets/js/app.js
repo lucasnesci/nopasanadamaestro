@@ -1,4 +1,4 @@
-var app = angular.module('npnm',['ngRoute']);
+var app = angular.module('npnm',['ngRoute', 'mockedData']);
 
 //Routing
 app.config(function($routeProvider) {
@@ -41,11 +41,22 @@ app.controller('TusAmigosController', function($scope, $http) {
     });
 });
 
-app.controller('FamososController', function($scope, $http) {
-//  $http.jsonp('https://api.instagram.com/v1/tags/nopasanadamaestro/media/recent?client_id=a1832e16662b4e3eb4de131ac3884588&callback=JSON_CALLBACK')
-//    .success(function(data) {
-//      $scope.videos = data;
-//    });
+app.controller('FamososController', function($scope, $http, MockedData) {
+  $scope.videos = MockedData.getVideos();
+$('.fancybox-media').fancybox({
+		openEffect  : 'none',
+		closeEffect : 'none',
+		helpers : {
+			media : {},
+                        title	: {
+				type: 'inside'
+			},
+//                        thumbs	: {
+//				width	: 50,
+//				height	: 50
+//			}
+		},
+	});
 });
 
 app.controller('QuieroAyudarController', function($scope, $http) {
