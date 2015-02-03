@@ -22,10 +22,14 @@
         <div>
           <h3 class="text-muted">#NoPasaNadaMaestro</h3>
         </div>
-        <div>
+        <div class="menu-principal">
+          <a class="btn btn-primary" ng-class="setActiveIfPath('/inicio')" href="#/inicio" role="button">Inicio</a>
           <a class="btn btn-primary" ng-class="setActiveIfPath('/tus-amigos')" href="#/tus-amigos" role="button">Tus amigos</a>
           <a class="btn btn-primary" ng-class="setActiveIfPath('/famosos')" href="#/famosos" role="button">Famosos</a>
-          <a class="btn btn-danger" ng-class="setActiveIfPath('/quiero-ayudar')" href="#/quiero-ayudar" role="button">Quiero ayudar!</a>
+          <a class="hidden-xs btn btn-danger" ng-class="setActiveIfPath('/quiero-ayudar')" href="#/quiero-ayudar" role="button">Quiero ayudar!</a>
+        </div>
+        <div class="visible-xs menu-ayudar">
+          <a class="btn btn-danger btn-sm" ng-class="setActiveIfPath('/quiero-ayudar')" href="#/quiero-ayudar" role="button">Quiero ayudar!</a>
         </div>
       </div>
       
@@ -45,6 +49,7 @@
     <script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>
     <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
     <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script type="text/javascript" src="bower_components/angular-utils-pagination/dirPagination.js"></script>
     <script type="text/javascript" src="bower_components/fancybox/source/jquery.fancybox.js"></script>
     <script type="text/javascript" src="/bower_components/fancybox/source/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
     <script type="text/javascript" src="/bower_components/fancybox/source/helpers/jquery.fancybox-media.js?v=1.0.6"></script>

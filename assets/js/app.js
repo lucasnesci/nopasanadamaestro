@@ -1,8 +1,12 @@
-var app = angular.module('npnm',['ngRoute', 'mockedData']);
+var app = angular.module('npnm',['ngRoute', 'angularUtils.directives.dirPagination', 'mockedData']);
 
 //Routing
 app.config(function($routeProvider) {
   $routeProvider
+    .when('/inicio', {
+      templateUrl: 'templates/inicio.tpl.html',
+      controller: 'InicioController'
+    })
     .when('/tus-amigos', {
       templateUrl: 'templates/tus-amigos.tpl.html',
       controller: 'TusAmigosController'
@@ -16,7 +20,7 @@ app.config(function($routeProvider) {
       controller: 'QuieroAyudarController'
     });
   $routeProvider.otherwise({
-    redirectTo: '/tus-amigos'
+    redirectTo: '/inicio'
   });
 });
 
