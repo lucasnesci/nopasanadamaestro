@@ -32,3 +32,19 @@ div.inline-media {
     max-width: none;
   }
 }
+
+.lead.lead-text {
+  font-size: 16px;
+}
+
+.select-control.bloodGroup {
+  padding-left: 0;
+}
+
+.select-control.bloodFactor {
+  padding-right: 0;
+}
+
+.select-control .glyphicon {
+  right: 10px;
+}

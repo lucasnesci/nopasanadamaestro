@@ -11,8 +11,8 @@
   <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,300'>
   <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css">
   <link rel="stylesheet" href="bower_components/fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
-  <link rel="stylesheet" href="/bower_components/fancybox/source/helpers/jquery.fancybox-buttons.css?v=1.0.5" type="text/css" media="screen" />
-  <link rel="stylesheet" href="/bower_components/fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" type="text/css" media="screen" />
+  <link rel="stylesheet" href="bower_components/fancybox/source/helpers/jquery.fancybox-buttons.css?v=1.0.5" type="text/css" media="screen" />
+  <link rel="stylesheet" href="bower_components/fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" type="text/css" media="screen" />
   <link rel="stylesheet" href="assets/css/npnm.css">
         
 </head>
@@ -50,11 +50,12 @@
     <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
     <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script type="text/javascript" src="bower_components/angular-utils-pagination/dirPagination.js"></script>
+    <!--<script type="text/javascript" src="bower_components/angular-google-analytics/src/angular-google-analytics.js"></script>-->
     <script type="text/javascript" src="bower_components/fancybox/source/jquery.fancybox.js"></script>
-    <script type="text/javascript" src="/bower_components/fancybox/source/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
-    <script type="text/javascript" src="/bower_components/fancybox/source/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
-    <script type="text/javascript" src="/bower_components/fancybox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
-    <script type="text/javascript" src="assets/js/npnm-data.js"></script>
+    <script type="text/javascript" src="bower_components/fancybox/source/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+    <script type="text/javascript" src="bower_components/fancybox/source/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+    <script type="text/javascript" src="bower_components/fancybox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+    <script type="text/javascript" src="assets/js/config.js"></script>
     <script type="text/javascript" src="assets/js/app.js"></script>
     <script>window.twttr = (function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0],

@@ -1,14 +1,17 @@
 <div class="content" ng-controller="TusAmigosController">
-  <h3 class="text-center">En Twitter:</h3>
+  <h3>S&iacute; que hubo ruido.</h3>
+  <p class="lead lead-text">Algunos m&aacute;s, otros menos, pero mir&aacute; el quilombo que armaste...</p>
+  <h4 class="text-center">En Twitter:</h4>
   <div class="twitter-feeds text-center">
     <a class="twitter-timeline" data-dnt="true" href="https://twitter.com/hashtag/nopasanadamaestro" data-widget-id="556862951639240704">Tweets sobre #nopasanadamaestro</a>
   </div>
 
-  <h3 class="text-center">En Instagram:</h3>
+  <h4 class="text-center">En Instagram:</h4>
   <div class="instagram-photos text-center">
     <div class="col-xs-12">
       <!--<a ng-repeat="gram in grams.data" href="{{ gram.link }}" target="_blank"><img class="social-image" src="{{ gram.images.thumbnail.url }}"></a>-->
-      <a dir-paginate="gram in grams.data | itemsPerPage: 12" href="{{ gram.link }}" target="_blank"><img class="social-image" src="{{ gram.images.thumbnail.url }}"></a>
+<!--      <a dir-paginate="gram in grams.data | itemsPerPage: 12" href="{{ gram.link }}" target="_blank"><img class="social-image" src="{{ gram.images.thumbnail.url }}"></a>-->
+      <a dir-paginate="gram in grams | itemsPerPage: 12" href="{{ gram.link }}" target="_blank"><img class="social-image" src="{{ gram.thumbnail }}" title="{{ gram.fullname }}"></a>
     </div>
     <div class="col-xs-12">
       <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="/templates/dirPagination.tpl.html"></dir-pagination-controls>

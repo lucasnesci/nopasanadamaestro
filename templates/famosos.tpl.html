@@ -1,12 +1,16 @@
 <div class="content" ng-controller="FamososController">
-  <h3 class="text-center">Videos:</h3>
+  <h3>Los famosos tambi&eacute;n dejaron su mensaje.</h3>
+  <p class="lead lead-text">Como ya sabr&aacute;s, muchos personajes de la far&aacute;ndula tambi&eacute;n te dejaron un saludo.<br/>
+  Por el momento, conseguir todos los videos se nos hizo muy complicado, pero invitamos a todos los visitantes que tengan alg&uacute;n audio o video
+    a que nos lo manden a <samp>famosos@nopasanadamaestro.com</samp> para as&iacute; poder subirlo y compartirlo con los dem&aacute;s.</p>
+  <!--<h3 class="text-center">Videos:</h3>-->
   <div class="famous-videos text-center">
     <a
       class="fancybox-media" rel="fancybox-media"
       target="_blank"
       ng-repeat="video in videos"
-      href="{{ video.link }}"
-      title="{{ video.name }}"
-      ><img class="social-image" src="{{ video.thumbnail }}" alt="" width="150px" height="150px"></a>
+      href="{{ video.youtube_link }}"
+      title="{{ video.node_title }}"
+      ><img class="social-image" src="{{ video.profile_image }}" alt=""></a>
   </div>
 </div>
