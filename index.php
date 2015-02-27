@@ -39,9 +39,10 @@
 
       <footer class="footer col-xs-12">
          <p class="pull-left">#NoPasaNadaMaestro</p>
-<!--         <p class="pull-right">
-           <a href="https://twitter.com/neschii" target="_blank">@neschii</a>
-         </p>-->
+         <p class="pull-right">
+           <!--<a href="https://twitter.com/neschii" target="_blank">@neschii</a>-->
+           <a href="https://linkedin.com/in/neschi" target="_blank">in/neschi</a>
+         </p>
       </footer>
     </div>
 
@@ -56,6 +57,7 @@
     <script type="text/javascript" src="bower_components/fancybox/source/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
     <script type="text/javascript" src="bower_components/fancybox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
     <script type="text/javascript" src="assets/js/config.js"></script>
+    <!--<script type="text/javascript" src="assets/js/googleAnalytics.js"></script>-->
     <script type="text/javascript" src="assets/js/app.js"></script>
     <script>window.twttr = (function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0],

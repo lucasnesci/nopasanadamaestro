@@ -34,6 +34,9 @@ app.controller('AppController', function($scope, $location) {
   }
 });
 
+app.controller('InicioController', function($scope, $http, CONFIG) {
+});
+
 app.controller('TusAmigosController', function($scope, $http, CONFIG) {
   $scope.$on('$viewContentLoaded', function(){
     twttr.widgets.load();

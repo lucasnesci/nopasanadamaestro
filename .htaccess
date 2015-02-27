@@ -1,0 +1,9 @@
+#
+# Redirect all to www
+#
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTP_HOST} ^nopasanadamaestro.com
+  RewriteRule ^ http://www.nopasanadamaestro.com%{REQUEST_URI} [L,R=301]
+</IfModule>
