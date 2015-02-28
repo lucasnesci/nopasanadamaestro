@@ -1,4 +1,4 @@
-var app = angular.module('npnm',['ngRoute', 'angularUtils.directives.dirPagination', 'config']);
+var app = angular.module('npnm',['ngRoute', 'angularUtils.directives.dirPagination', 'config', 'angular-loading-bar']);
 
 //Routing
 app.config(function($routeProvider) {
@@ -103,9 +103,8 @@ app.controller('QuieroAyudarController', function($scope, $http, CONFIG) {
     .then(
       function(response) {
         // success
-        console.log('hurray');
-        console.log(response);
         $scope.error = false;
+        $scope.warning = false;
         $scope.success = true;
         $scope.form.$setPristine();
         $scope.formData.nombre = '';
@@ -118,10 +117,14 @@ app.controller('QuieroAyudarController', function($scope, $http, CONFIG) {
       }, 
       function(response) {
         // failed
-        console.log('puta madre');
-        console.log(response);
         $scope.success = false;
-        $scope.error = true;
+        $scope.error = false;
+        $scope.warning = false;
+        if (response.data !== null) {
+          $scope.warning = true;
+        } else {
+          $scope.error = true;
+        }
       }
     );
   };

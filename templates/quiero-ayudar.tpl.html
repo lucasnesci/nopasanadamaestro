@@ -4,7 +4,8 @@
   <h2>Todos podemos ser donantes.<br/>Todos podemos ser receptores.</h2>
   <p class="lead lead-text">Inscribite como donante llenando el siguiente formulario y quedaras registrado en nuestra base de datos.</p>
   <div class="alert alert-success" role="alert" ng-show="success">Muchas gracias por registrarte.</div>
-  <div class="alert alert-danger" role="alert" ng-show="error">El mail que ingresaste ya esta registrado.</div>
+  <div class="alert alert-danger" role="alert" ng-show="error">Tuvimos un problema al intentar registrarte. Por favor intenta mas tarde o escribinos a un email a <samp>hola@nopasanadamaestro.com</samp></div>
+  <div class="alert alert-danger" role="alert" ng-show="warning">El mail que ingresaste ya esta registrado.</div>
   <form id="formudecontacto" method="post" name="form" role="form" class=""ng-submit="form.$valid && processForm()" novalidate>
     <!--<h4>Datos personales</h4>-->
     <div class="col-xs-12 col-sm-6">

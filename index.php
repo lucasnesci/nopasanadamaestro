@@ -13,8 +13,9 @@
   <link rel="stylesheet" href="bower_components/fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
   <link rel="stylesheet" href="bower_components/fancybox/source/helpers/jquery.fancybox-buttons.css?v=1.0.5" type="text/css" media="screen" />
   <link rel="stylesheet" href="bower_components/fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" type="text/css" media="screen" />
+  <link rel="stylesheet" href="bower_components/angular-loading-bar/src/loading-bar.css">
   <link rel="stylesheet" href="assets/css/npnm.css">
-        
+
 </head>
   <body ng-controller="AppController">
     <div class="container">
@@ -56,6 +57,7 @@
     <script type="text/javascript" src="bower_components/fancybox/source/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
     <script type="text/javascript" src="bower_components/fancybox/source/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
     <script type="text/javascript" src="bower_components/fancybox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+    <script type="text/javascript" src="bower_components/angular-loading-bar/src/loading-bar.js"></script>
     <script type="text/javascript" src="assets/js/config.js"></script>
     <!--<script type="text/javascript" src="assets/js/googleAnalytics.js"></script>-->
     <script type="text/javascript" src="assets/js/app.js"></script>
