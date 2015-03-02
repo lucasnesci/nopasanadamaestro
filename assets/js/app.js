@@ -84,7 +84,9 @@ app.controller('QuieroAyudarController', function($scope, $http, CONFIG) {
   $scope.formData = {};
 
   $scope.processForm = function() {
-    console.log($scope.formData);
+    $scope.success = false;
+    $scope.error = false;
+    $scope.warning = false;
     $http({
       url: CONFIG.apiBaseUrl + 'user/register',
       method: "POST",
@@ -103,9 +105,6 @@ app.controller('QuieroAyudarController', function($scope, $http, CONFIG) {
     .then(
       function(response) {
         // success
-        $scope.error = false;
-        $scope.warning = false;
-        $scope.success = true;
         $scope.form.$setPristine();
         $scope.formData.nombre = '';
         $scope.formData.direccion = '';
@@ -117,9 +116,6 @@ app.controller('QuieroAyudarController', function($scope, $http, CONFIG) {
       }, 
       function(response) {
         // failed
-        $scope.success = false;
-        $scope.error = false;
-        $scope.warning = false;
         if (response.data !== null) {
           $scope.warning = true;
         } else {
