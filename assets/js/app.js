@@ -105,6 +105,7 @@ app.controller('QuieroAyudarController', function($scope, $http, CONFIG) {
     .then(
       function(response) {
         // success
+        $scope.success = true;
         $scope.form.$setPristine();
         $scope.formData.nombre = '';
         $scope.formData.direccion = '';
