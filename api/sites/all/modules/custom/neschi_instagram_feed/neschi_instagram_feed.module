@@ -1,0 +1,113 @@
+<?php
+
+/**
+ * @file
+ */
+
+/*
+ * Implement hook_cron().
+ */
+function neschi_instagram_feed_cron() {    
+  neschi_instagram_feed_get_and_save();
+}
+
+/*
+ * Download new media and save it as node.
+ */
+function neschi_instagram_feed_get_and_save($url = NULL) {
+  if (empty($url)) {
+    $client_id = 'a1832e16662b4e3eb4de131ac3884588';
+    $hashtag = 'nopasanadamaestro';
+    $url = 'https://api.instagram.com/v1/tags/'.$hashtag.'/media/recent?client_id='.$client_id;
+  }
+  watchdog('neschi_instagram_feed', $url, array(), WATCHDOG_NOTICE);
+  $media = neschi_instagram_feed_get_media($url);
+  neschi_instagram_feed_save_media($media);
+  dsm($media['data']);
+  if (!empty($media['pagination']['next_url'])) {
+    neschi_instagram_feed_get_and_save($media['pagination']['next_url']);
+  }
+}
+
+/*
+ * Delete media that is not longer on Instagram.
+ */
+function neschi_instagram_feed_delete_media() {
+  return ;
+}
+
+/*
+ * Helper - Get media by tag from Instagram's API.
+ */
+function neschi_instagram_feed_get_media($url) {
+  // Open connection.
+  $ch = curl_init();
+  // Set the url, number of POST vars, POST data.
+  curl_setopt($ch,CURLOPT_URL, $url);
+  curl_setopt($ch,CURLOPT_RETURNTRANSFER, TRUE);
+  // Execute post.
+  $result = curl_exec($ch);
+  // Close connection.
+  curl_close($ch);
+  return json_decode($result, TRUE);
+}
+
+/*
+ * Transform json to new nodes.
+ */
+function neschi_instagram_feed_save_media($media) {
+  $counter  = '';
+  foreach ($media['data'] as $value) {
+    $node = exist_node_by_title($value['id']);
+    if (empty($node)) {
+      $node = new stdClass(); // Create a new node object
+      $node->type = "instagram_post"; // Or page, or whatever content type you like
+      node_object_prepare($node); // Set some default values
+      // If you update an existing node instead of creating a new one,
+      // comment out the three lines above and uncomment the following:
+      // $node = node_load($nid); // ...where $nid is the node id
+
+      $node->uid = 1; // UID of the author of the node; or use $node->name
+      $node->status = 1; //(1 or 0): published or not
+      $node->promote = 0; //(1 or 0): promoted to front page
+      $node->comment = 0; // 0 = comments disabled, 1 = read only, 2 = read/write
+      $node->language = LANGUAGE_NONE; // Or e.g. 'en' if locale is enabled
+
+      $node->title = $value['id'];
+      $node->field_timestamp[$node->language][0]['value'] = $value['created_time'];
+      $node->field_link[$node->language][0]['value'] = $value['link'];
+      $node->field_type[$node->language][0]['value'] = $value['type'];
+      $node->field_user_username[$node->language][0]['value'] = $value['user']['username'];
+      // Sanitize full name
+      $fullname = filter_var($value['user']['full_name'], FILTER_SANITIZE_URL);
+      $node->field_user_fullname[$node->language][0]['value'] = $fullname;
+      $node->field_thumbnail_link[$node->language][0]['value'] = $value['images']['thumbnail']['url'];
+
+      if($node = node_submit($node)) { // Prepare node for saving
+        node_save($node);
+        $counter++;
+        watchdog('neschi_instagram_feed', 'Created new Instagram Post: '.$node->title, array(), WATCHDOG_NOTICE);
+      } else {
+        watchdog('neschi_instagram_feed', "Something went wrong", array(), WATCHDOG_NOTICE);
+      }
+    }
+  }
+  if (!empty($counter)) {
+    watchdog('neschi_instagram_feed', 'Total grams saved: '.$counter, array(), WATCHDOG_NOTICE); 
+  } else {
+    watchdog('neschi_instagram_feed', 'No new media to save', array(), WATCHDOG_NOTICE); 
+  }
+}
+
+/*
+ * Check if node exists by title.
+ */
+function exist_node_by_title($node_title) {
+  $result = db_select('node', 'n')
+    ->fields('n')
+    ->condition('title', $node_title,'=')
+    ->condition('status', 0,'>')
+    ->execute()
+    ->fetchAssoc();
+  return !empty($result);
+}

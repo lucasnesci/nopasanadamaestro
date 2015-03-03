@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the NPNM Views feature.
+ */
+
+include_once 'npnm_views.features.inc';

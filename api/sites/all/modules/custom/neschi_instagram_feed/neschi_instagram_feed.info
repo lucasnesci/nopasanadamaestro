@@ -1,0 +1,5 @@
+name = Instagram Feed
+description = Get images from Instagram's API and save it as nodes.
+package = Neschi
+core = 7.x
+version 1.0
