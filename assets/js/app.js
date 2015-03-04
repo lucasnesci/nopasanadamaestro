@@ -24,7 +24,7 @@ app.config(function($routeProvider) {
   });
 });
 
-app.controller('AppController', function($scope, $location) {
+app.controller('AppController', function($scope, $location, $rootScope) {
   $scope.setActiveIfPath = function(path) {
     if ($location.path().substr(0, path.length) === path) {
       return "active";
@@ -32,6 +32,9 @@ app.controller('AppController', function($scope, $location) {
       return "";
     };
   }
+  $rootScope.$on('$routeChangeSuccess', function() {
+    ga('send', 'pageview', {'page': $location.path()});
+  });
 });
 
 app.controller('InicioController', function($scope, $http, CONFIG) {
