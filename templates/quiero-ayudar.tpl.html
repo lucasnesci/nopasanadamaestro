@@ -15,15 +15,27 @@
         <span ng-show="(form.$submitted || form.nombre.$dirty) && form.nombre.$valid" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
         <span ng-show="(form.$submitted || form.nombre.$dirty) && form.nombre.$invalid" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
       </div>
-      <div class="form-group has-feedback" ng-class="{'has-error' : (form.$submitted || form.direccion.$dirty) && form.direccion.$invalid }">
-        <label for="nombre" class="control-label">Direcci&#243;n:</label>
-        <input tabindex=3 type="text" class="form-control" id="direccion" name="direccion" ng-model="formData.direccion" required>
-        <span ng-show="(form.$submitted || form.direccion.$dirty) && form.direccion.$valid" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
-        <span ng-show="(form.$submitted || form.direccion.$dirty) && form.direccion.$invalid" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+      <div class="form-group has-feedback" ng-class="{'has-error' : (form.$submitted || form.telefono.$dirty) && form.telefono.$invalid }">
+        <label for="nombre" class="control-label">Telefono</label>
+        <input tabindex=3 type="tel" class="form-control" id="telefono" name="telefono" ng-model="formData.telefono" required>
+        <span ng-show="(form.$submitted || form.telefono.$dirty) && form.telefono.$valid" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+        <span ng-show="(form.$submitted || form.telefono.$dirty) && form.telefono.$invalid" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+      </div>
+      <div class="form-group has-feedback" ng-class="{'has-error' : (form.$submitted || form.localidad.$dirty) && form.localidad.$invalid }">
+        <label for="nombre" class="control-label">Localidad:</label>
+        <input tabindex=5 type="text" class="form-control" id="localidad" name="localidad" ng-model="formData.localidad" required>
+        <span ng-show="(form.$submitted || form.localidad.$dirty) && form.localidad.$valid" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+        <span ng-show="(form.$submitted || form.localidad.$dirty) && form.localidad.$invalid" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+      </div>
+      <div class="form-group has-feedback" ng-class="{'has-error' : (form.$submitted || form.provincia.$dirty) && form.provincia.$invalid }">
+        <label for="nombre" class="control-label">Provincia:</label>
+        <input tabindex=7 type="text" class="form-control" id="provincia" name="provincia" ng-model="formData.provincia" required>
+        <span ng-show="(form.$submitted || form.provincia.$dirty) && form.provincia.$valid" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+        <span ng-show="(form.$submitted || form.provincia.$dirty) && form.provincia.$invalid" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
       </div>
       <div class="form-group has-feedback" ng-class="{'has-error' : (form.$submitted || form.dni.$dirty) && form.dni.$invalid }">
         <label for="nombre" class="control-label">DNI:</label>
-        <input tabindex=5 type="text" class="form-control" id="dni" name="dni" ng-model="formData.dni" required>
+        <input tabindex=9 type="text" class="form-control" id="dni" name="dni" ng-model="formData.dni" required>
         <span ng-show="(form.$submitted || form.dni.$dirty) && form.dni.$valid" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
         <span ng-show="(form.$submitted || form.dni.$dirty) && form.dni.$invalid" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
       </div>
@@ -35,16 +47,28 @@
         <span ng-show="(form.$submitted || form.email.$dirty) && form.email.$valid" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
         <span ng-show="(form.$submitted || form.email.$dirty) && form.email.$invalid" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
       </div>
-      <div class="form-group has-feedback" ng-class="{'has-error' : (form.$submitted || form.telefono.$dirty) && form.telefono.$invalid }">
-        <label for="nombre" class="control-label">Telefono</label>
-        <input tabindex=4 type="tel" class="form-control" id="telefono" name="telefono" ng-model="formData.telefono" required>
-        <span ng-show="(form.$submitted || form.telefono.$dirty) && form.telefono.$valid" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
-        <span ng-show="(form.$submitted || form.telefono.$dirty) && form.telefono.$invalid" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+      <div class="form-group has-feedback" ng-class="{'has-error' : (form.$submitted || form.direccion.$dirty) && form.direccion.$invalid }">
+        <label for="nombre" class="control-label">Direcci&#243;n:</label>
+        <input tabindex=4 type="text" class="form-control" id="direccion" name="direccion" ng-model="formData.direccion" required>
+        <span ng-show="(form.$submitted || form.direccion.$dirty) && form.direccion.$valid" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+        <span ng-show="(form.$submitted || form.direccion.$dirty) && form.direccion.$invalid" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+      </div>
+      <div class="form-group has-feedback" ng-class="{'has-error' : (form.$submitted || form.codigoPostal.$dirty) && form.codigoPostal.$invalid }">
+        <label for="nombre" class="control-label">C&oacute;digo postal:</label>
+        <input tabindex=6 type="text" class="form-control" id="codigoPostal" name="codigoPostal" ng-model="formData.codigoPostal" required>
+        <span ng-show="(form.$submitted || form.codigoPostal.$dirty) && form.codigoPostal.$valid" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+        <span ng-show="(form.$submitted || form.codigoPostal.$dirty) && form.codigoPostal.$invalid" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+      </div>
+      <div class="form-group has-feedback" ng-class="{'has-error' : (form.$submitted || form.pais.$dirty) && form.pais.$invalid }">
+        <label for="nombre" class="control-label">Pa&iacute;s</label>
+        <input tabindex=8 type="text" class="form-control" id="pais" name="pais" ng-model="formData.pais" required>
+        <span ng-show="(form.$submitted || form.pais.$dirty) && form.pais.$valid" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+        <span ng-show="(form.$submitted || form.pais.$dirty) && form.pais.$invalid" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
       </div>
       <div class="col-xs-12 col-sm-6 select-control bloodGroup">
         <div class="form-group has-feedback" ng-class="{'has-error' : (form.$submitted || form.sangreGrupo.$dirty) && form.sangreGrupo.$invalid }">
           <label for="nombre" class="control-label">Grupo sangu&#237;neo:</label>
-          <select tabindex=6 class="form-control" id="sangreGrupo" name="sangreGrupo" ng-model="formData.sangreGrupo" ng-options="bloodGroup.name for bloodGroup in bloodGroups" required></select>
+          <select tabindex=10 class="form-control" id="sangreGrupo" name="sangreGrupo" ng-model="formData.sangreGrupo" ng-options="bloodGroup.name for bloodGroup in bloodGroups" required></select>
           <span ng-show="(form.$submitted || form.sangreGrupo.$dirty) && form.sangreGrupo.$valid" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
           <span ng-show="(form.$submitted || form.sangreGrupo.$dirty) && form.sangreGrupo.$invalid" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
         </div>
@@ -52,7 +76,7 @@
       <div class="col-xs-12 col-sm-6 select-control bloodFactor">
         <div class="form-group has-feedback" ng-class="{'has-error' : (form.$submitted || form.sangreFactor.$dirty) && form.sangreFactor.$invalid }">
           <label for="nombre" class="control-label">Factor:</label>
-          <select tabindex=7 class="form-control" id="sangreFactor" name="sangreFactor" ng-model="formData.sangreFactor" ng-options="bloodFactor.name for bloodFactor in bloodFactors" required></select>
+          <select tabindex=11 class="form-control" id="sangreFactor" name="sangreFactor" ng-model="formData.sangreFactor" ng-options="bloodFactor.name for bloodFactor in bloodFactors" required></select>
 <!--          <input tabindex=3 type="text" class="form-control" id="sangreFactor" name="sangreFactor" ng-model="formData.sangreFactor" required>-->
           <span ng-show="(form.$submitted || form.sangreFactor.$dirty) && form.sangreFactor.$valid" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
           <span ng-show="(form.$submitted || form.sangreFactor.$dirty) && form.sangreFactor.$invalid" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>

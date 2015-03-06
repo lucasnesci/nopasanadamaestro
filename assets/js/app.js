@@ -98,11 +98,15 @@ app.controller('QuieroAyudarController', function($scope, $http, CONFIG) {
         mail:$scope.formData.email,
         pass:'ch4ng3m3',
         status:1,
-        field_user_fullname: {und: {0: {value: $scope.formData.nombre}}},
-        field_user_address:  {und: {0: {value: $scope.formData.direccion}}},
-        field_user_dni:      {und: {0: {value: $scope.formData.dni}}},
-        field_user_phone:    {und: {0: {value: $scope.formData.telefono}}},
-        field_user_blood:    {und: {0: {value: $scope.formData.sangreGrupo.name+$scope.formData.sangreFactor.name}}},
+        field_user_fullname:      {und: {0: {value: $scope.formData.nombre}}},
+        field_user_address:       {und: {0: {value: $scope.formData.direccion}}},
+        field_user_city:          {und: {0: {value: $scope.formData.localidad}}},
+        field_user_postal_code:   {und: {0: {value: $scope.formData.codigoPostal}}},
+        field_user_state:         {und: {0: {value: $scope.formData.provincia}}},
+        field_user_country:       {und: {0: {value: $scope.formData.pais}}},
+        field_user_dni:           {und: {0: {value: $scope.formData.dni}}},
+        field_user_phone:         {und: {0: {value: $scope.formData.telefono}}},
+        field_user_blood:         {und: {0: {value: $scope.formData.sangreGrupo.name+$scope.formData.sangreFactor.name}}},
       }
     })
     .then(
@@ -114,6 +118,10 @@ app.controller('QuieroAyudarController', function($scope, $http, CONFIG) {
         $scope.formData.direccion = '';
         $scope.formData.dni = '';
         $scope.formData.telefono = '';
+        $scope.formData.localidad = '';
+        $scope.formData.codigoPostal = '';
+        $scope.formData.provincia = '';
+        $scope.formData.pais = '';
         $scope.formData.email = '';
         $scope.formData.sangreGrupo = '';
         $scope.formData.sangreFactor = '';
